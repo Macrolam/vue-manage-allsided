@@ -3,15 +3,18 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const chalk = require('chalk')
 
 function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '..', dir)//用于连接路径。该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"。
 }
-
+console.log(chalk.red(path.join(__dirname,'..',"dir")));//D:\Acode\self\vue-manage-allsided\dir
+console.log(chalk.red(path.join(__dirname,"dir")));//Acode\self\vue-manage-allsided\build\dir
+console.log(chalk.red("ok"));
 
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
+  context: path.resolve(__dirname, '../'),//path.resolve()方法会结合两个参数最后生成绝对路径，
   entry: {
     app: './src/main.js'
   },
