@@ -40,11 +40,11 @@ module.exports = {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
-    // Paths
+    // PathsServer: WebStorm 11.0.2Server: WebStorm 11.0.2
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-
+    assetsSubDirectory: 'static',//Server: WebStorm 11.0.2 在IDE中打开 启动的服务器时候. / 是找不到这些资源的.需要申明为 ./
+    assetsPublicPath: './',// [1]/  => //http://localhost:63342/static/css/app.bde4ae96cf06078020811b244357dd54.css
+                           // [2]./ => //http://localhost:63342/vue-manage-allsided/dist/static/css/app.bde4ae96cf06078020811b244357dd54.css
     /**
      * Source Maps
      */

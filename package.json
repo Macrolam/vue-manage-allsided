@@ -10,7 +10,7 @@
     "build": "node build/build.js ",
     "dll": "node build/build-dll.js",
     "prebuild": "echo I run before the build script",
-    "postbuild": "npm run open:dev ",
+    "postbuild": "npm run ser ",
     "clean": "rimraf dist/*",
     "remove": "node_modules/.bin/rimraf ./dist",
     "open": "opener http://localhost:9090",
