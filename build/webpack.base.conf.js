@@ -27,8 +27,10 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],//可以省略的扩展名.当同一路径下 既有.Vue 又有.js 文件时候 引入时候省略后缀名时默认导入的是js文件.
     // 别名
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue$': 'vue/dist/vue.esm.js',//import Vue from 'vue' 就相当于import Vue from 'node_modules/vue/dist/vue.esm.js'
       '@': resolve('src'),//path.join(__dirname, '..', 'src')  ==> 第一个参数__dirname代表当前文件的位置即: build ;第二个参数: ../;第三个参数: src ;最后连接完:也就是项目根目录下的src目录
+      'common':resolve('src/common'),
+      'components':resolve('src/components')
     }
   },
   module: {
