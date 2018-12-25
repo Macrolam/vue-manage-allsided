@@ -10,6 +10,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: home
-    }
+    },
+    {
+      path: '/home2',
+      name: 'home2',
+      component: resolve =>(['@/component/home/home1'],resolve)
+    },
   ]
 })

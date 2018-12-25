@@ -2,22 +2,38 @@
   "defaultSite":[
     {
       "name":"导航1",
-      "key":"",
+      "key":"placeholder",
+      "icon":"el-icon-location",
       "children":[
         {
           "name":"导航1.1",
-          "key":"",
+          "key":"home1",
+          "icon":"",
+          "children":[]
+        },
+        {
+          "name":"导航1.2",
+          "key":"home2",
+          "icon":"",
+          "children":[]
+        },
+        {
+          "name":"导航1.3",
+          "key":"home3",
+          "icon":"",
           "children":[]
         }
       ]
     },
     {
       "name":"导航2",
-      "key":"",
+      "key":"placeholder",
+      "icon":"el-icon-menu",
       "children":[
         {
           "name":"导航2.1",
           "key":"",
+          "icon":"",
           "children":[]
         }
       ]

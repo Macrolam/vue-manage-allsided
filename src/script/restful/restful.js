@@ -51,4 +51,4 @@ restful.post = function (obj) {
 
 }
 // 导出模块api
-tools.dataHandle.addAndMarkForObj({name: "mac", sex: 1})
+export {restful};

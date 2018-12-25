@@ -31,7 +31,8 @@ module.exports = {
       '@': resolve('src'),//path.join(__dirname, '..', 'src')  ==> 第一个参数__dirname代表当前文件的位置即: build ;第二个参数: ../;第三个参数: src ;最后连接完:也就是项目根目录下的src目录
       'common':resolve('src/common'),
       'components':resolve('src/components'),
-      'script':resolve('src/script')
+      'script':resolve('src/script'),
+      'static':resolve('static')
     }
   },
   module: {

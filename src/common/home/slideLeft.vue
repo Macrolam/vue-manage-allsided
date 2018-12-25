@@ -2,40 +2,69 @@
   <el-row class="slideLeft">
     <el-col :span="24">
       <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
-
-        background-color="#545c64"
+        :router="true"
+        background-color="#2b2b2b"
         text-color="#fff"
-        active-text-color="#ffd04b">
-        <el-submenu index="1">
+        active-text-color="#ffd04b"
+        @select="handleOpen">
+        <el-submenu :index="`${index}-zero`" :key= 'index' v-for="(item,index) in menuArr">
           <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>导航一</span>
+            <i :class="item.icon"></i>
+            <span>{{item.name}}</span>
           </template>
-          <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
+          <el-menu-item :index="`${itemFir.key}`" :key="`${indexFir}-1`" v-for="(itemFir,indexFir) in item.children">
+            <i :class="itemFir.icon"></i>
+            {{itemFir.name}}
+          </el-menu-item>
         </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
       </el-menu>
     </el-col>
   </el-row>
 </template>
 <script>
+  import api from '@/script/api/api'
+  import {restful} from '@/script/restful/restful'
+  console.log(api,restful)
+  export default {
+    name: "slideLeft",
+    data(){
+      return {
+        menuArr:[],
+      }
+    },
+    methods: {
+      // 获取菜单
+      getMenu(){
+        let self = this
+        restful.get({
+          url:api.getMenuByUserRole,
+          callback(res){
+            console.log(res.data.defaultSite,"res:")
+            self.menuArr = res.data.defaultSite || []
+          }
+        })
+      },
+      // 菜单激活的回调
+      handleOpen(menuIndex,menuIndexPath){
+        let self = this
+        console.log(menuIndex)
+        console.log(menuIndexPath,"menuIndexPath:")//拿到 el-submenu :index="`${index}-zero`" 和 el-menu-item :index="`${itemFir.key}`"
+        console.log(this.$router,"routerObj:")
+       /* this.$router.push({//你需要接受路由的参数再跳转
+            path: '/home1',
+            name: 'home1',
+            component: resolve =>(['@/component/home/home1'],resolve),
+      });*/
 
+       console.log(this.$router,"push routerObj:")
+      },
+
+    },
+    created(){
+      let self = this
+      self.getMenu()
+    }
+  }
 </script>
 <style>
 
