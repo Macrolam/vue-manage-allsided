@@ -1,7 +1,7 @@
 'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
-const config = require('../config')
+const config = require('../config/index.js')
 const merge = require('webpack-merge')//合并对象的.
 const path = require('path')//nodeJs 路径模块
 const baseWebpackConfig = require('./webpack.base.conf')
