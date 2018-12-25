@@ -1,0 +1,26 @@
+{
+  "defaultSite":[
+    {
+      "name":"导航1",
+      "key":"",
+      "children":[
+        {
+          "name":"导航1.1",
+          "key":"",
+          "children":[]
+        }
+      ]
+    },
+    {
+      "name":"导航2",
+      "key":"",
+      "children":[
+        {
+          "name":"导航2.1",
+          "key":"",
+          "children":[]
+        }
+      ]
+    }
+  ]
+}
