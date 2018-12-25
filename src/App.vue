@@ -16,8 +16,8 @@
         <router-view/>
       </el-main>
       <!--<el-footer class="footer">-->
-        <!--&lt;!&ndash;底部区域&ndash;&gt;-->
-        <!--Footer-->
+      <!--&lt;!&ndash;底部区域&ndash;&gt;-->
+      <!--Footer-->
       <!--</el-footer>-->
     </el-container>
   </el-container>
@@ -28,33 +28,37 @@
   import headerTop from 'common/home/header.vue'
   export default {
     name: 'App',
-    components:{slideLeft,headerTop},
+    components: {slideLeft, headerTop},
   }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  height: 100%;
-}
-  #leftWrap{
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    height: 100%;
+  }
+
+  #leftWrap {
     width: 200px;
     height: 100%;
     background: lightcyan;
   }
-  #rightWrap{
-    width:100%;
+
+  #rightWrap {
+    width: 100%;
     height: 100%;
     background: pink;
   }
-   #rightWrap .topWrap{
-      height: 100px;
-      background: lightgoldenrodyellow;
-   }
-  #rightWrap .footer{
+
+  #rightWrap .topWrap {
+    height: 100px;
+    background: lightgoldenrodyellow;
+  }
+
+  #rightWrap .footer {
     height: 100px;
     background: cornflowerblue;
   }
