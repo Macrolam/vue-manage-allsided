@@ -50,14 +50,16 @@
   #rightWrap {
     width: 100%;
     height: 100%;
-    background: pink;
+    background: #eee;
   }
 
   #rightWrap .topWrap {
     height: 100px;
     background: lightgoldenrodyellow;
   }
-
+ #rightWrap .main{
+   background: #ccc;
+ }
   #rightWrap .footer {
     height: 100px;
     background: cornflowerblue;

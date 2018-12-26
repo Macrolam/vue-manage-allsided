@@ -12,9 +12,13 @@ export default new Router({
       component: home
     },
     {
+      path: '/home1',
+      name: 'home1',
+      component: resolve =>require(['@/components/home/home1'],resolve)
+    }, {
       path: '/home2',
       name: 'home2',
-      component: resolve =>(['@/component/home/home1'],resolve)
+      component: resolve =>require(['@/components/home/home1'],resolve)
     },
   ]
 })

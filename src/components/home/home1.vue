@@ -1,7 +1,6 @@
 <template>
   <section class="home">
-
-    home1
+    home1home1home1home1
   </section>
 </template>
 
@@ -21,5 +20,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.home{
+  background: #000;
+}
 </style>
