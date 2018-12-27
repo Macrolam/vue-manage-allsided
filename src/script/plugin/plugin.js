@@ -6,6 +6,7 @@
  * @Duty:Vue原型上的扩展 方法全局可用 https://cn.vuejs.org/v2/guide/plugins.html
  */
 import {restful} from '@/script/restful/restful.js'//通用的请求方法封装
+import store from '@/script/vuex'//vuex-tab区域的数据管理 =》导入写到目录层，默认取目录下的index.js => @/script/vuex/index.js
 
 export default {
   //Vue.js 的插件扩展有一个公开方法 install。这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象
@@ -18,6 +19,8 @@ export default {
     Vue.globalFn = function () {
     console.log("I am Vue global fn");
     },
+    //添加store 主文件中暴露的api-tab组件的相关数据状态以及对应操作
+    Vue.prototype.$store = store,
     // 添加指令
     Vue.directive('my-directive', {
       bind (el, binding, vnode, oldVnode) {

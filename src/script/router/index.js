@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/components/home/home'
+import home from '@/components/page/home/home'
 
 Vue.use(Router)
 
@@ -14,11 +14,11 @@ export default new Router({
     {
       path: '/home1',
       name: 'home1',
-      component: resolve =>require(['@/components/home/home1'],resolve)
+      component: resolve =>require(['@/components/page/home/home1'],resolve)
     }, {
       path: '/home2',
       name: 'home2',
-      component: resolve =>require(['@/components/home/home1'],resolve)
+      component: resolve =>require(['@/components/page/home/home1'],resolve)
     },
   ]
 })

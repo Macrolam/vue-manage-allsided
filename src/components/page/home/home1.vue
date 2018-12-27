@@ -1,15 +1,11 @@
 <template>
   <section class="home">
-
-    <!--右侧-->
-    <slideRight></slideRight>
-    <!--顶部导航-->
-    <!--底部快捷-->
+    home1home1home1home1
   </section>
 </template>
 
 <script>
-  import slideRight from 'common/home/slideRight'
+  import slideRight from '@/components/common/home/slideRight'
   export default {
     name: 'home',
     components:{slideRight},
@@ -24,5 +20,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.home{
+  background: #000;
+}
 </style>

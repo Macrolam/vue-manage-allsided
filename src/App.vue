@@ -24,11 +24,31 @@
 </template>
 
 <script>
-  import slideLeft from 'common/home/slideLeft'
-  import headerTop from 'common/home/header.vue'
+  import slideLeft from '@/components/common/home/slideLeft'
+  import headerTop from '@/components/common/home/header.vue'
   export default {
     name: 'App',
     components: {slideLeft, headerTop},
+    computed:{
+      num(){
+         return this.$store.state.tab.num
+      }
+    },
+    data(){
+      return{
+
+      }
+    },
+    created(){
+      debugger
+      this
+
+
+    },
+    mounted(){
+      document.write(this.num)
+      console.log(this.$store.state.tab.num,"read state");
+    }
   }
 </script>
 
