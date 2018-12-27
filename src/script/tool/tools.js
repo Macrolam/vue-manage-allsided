@@ -2,7 +2,7 @@ let tools = {}
 
 tools.dataHandle = {}//数据处理相关的方法
 tools.type = {}//判断数据类型
-
+tools.date = {}// 时间相关
 tools.type = {
   // 是否是数组
   isArray: function (param) {
@@ -67,6 +67,13 @@ tools.dataHandle = {
 
 };
 
+
+tools.date = {
+  //获取当前时间戳的方法
+  getTimestamp:function () {
+    return new Date().getTime().toString();//"1545907921968" //or Date.parse(new Date()) or (new Date()).valueOf()
+  }
+}
 
 // js模块文件导出的api
 export {tools}

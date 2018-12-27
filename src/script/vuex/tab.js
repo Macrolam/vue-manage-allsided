@@ -8,17 +8,23 @@
 import Vue from 'vue'
 import Vuex from 'Vuex'
 Vue.use(Vuex)
-let tab ={
-  namespaced:true,// 继承父模块的命名空间
-  state:{
-    num:0,
-    tabsArr:[
+let tab = {
+  namespaced: true,// 继承父模块的命名空间
+  state: {
+    num: 0,
+    curTabKey: '1',// 激活的tab key
+    tabsArr: [
       {
-        "name":"导航1.1",
-        "key":"home1",
+        "name": "导航1.1",
+        "key": "home1",
         // title: 'Tab 1',
         // name: '1',
-      }, ,
+      }, {
+        "name": "导航1.1",
+        "key": "home2",
+        // title: 'Tab 1',
+        // name: '1',
+      },
     ]
     //=== state end ===
   },
@@ -36,8 +42,6 @@ let tab ={
 
 // 暴露此模块的api
 export default tab;
-
-
 
 
 /*

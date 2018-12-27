@@ -40,14 +40,10 @@
       }
     },
     created(){
-      debugger
-      this
-
-
     },
     mounted(){
-      document.write(this.num)
-      console.log(this.$store.state.tab.num,"read state");
+      //document.write(this.num)
+      //console.log(this.$store.state.tab.num,"read state");
     }
   }
 </script>

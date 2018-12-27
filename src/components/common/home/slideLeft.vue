@@ -25,9 +25,15 @@
   import Vue from 'vue'
   import api from '@/script/api/api'
   import {restful} from '@/script/restful/restful'
+  import {tools} from '@/script/tool/tools.js'
   console.log(api,restful)
   export default {
     name: "slideLeft",
+    computed:{
+      tabsArr(){
+        return this.$store.state.tab.tabsArr;
+      }
+    },
     data(){
       return {
         menuArr:[],
@@ -50,11 +56,10 @@
         let self = this
         console.log(menuIndex)
         console.log(menuIndexPath,"menuIndexPath:")//拿到 el-submenu :index="`${index}-zero`" 和 el-menu-item :index="`${itemFir.key}`"
-        /*this.$router.push({//你需要接受路由的参数再跳转
-            path: '/home1',
-            name: 'home1',
-            component: resolve =>require(['@/components/home/home1'],resolve),
-        });*/
+        self.tabsArr.push({
+          name:menuIndex,
+          key:tools.date.getTimestamp()
+        })
 
       },
 
