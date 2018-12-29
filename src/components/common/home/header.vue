@@ -3,10 +3,10 @@
     <el-col :span="24">
       <el-row>
         <el-col :span="24">
-          <el-tabs v-model="curTabKey" type="card" closable @tab-remove="closeTab">
+          <el-tabs v-model="curTabKey" type="card" closable @tab-remove="closeTab" @tab-click="changeTab">
             <el-tab-pane
               :key="item.key"
-               v-for="(item, index) in tabsArr"
+              v-for="(item, index) in tabsArr"
               :label="item.name"
               :name="item.key">
               {{item.key}}
@@ -28,40 +28,51 @@
 <script>
   export default {
     /*computed:{
-      tabsArr(){//tab区域的数据列表
-        return this.$store.state.tab.tabsArr;
-      },
-      curTabKey(){// 激活的tab key
-        return this.$store.state.tab.curTabKey;
-      }
-    },*/
-    computed:{
-     tabsArr:{//tab区域的数据列表
+     tabsArr(){//tab区域的数据列表
+     return this.$store.state.tab.tabsArr;
+     },
+     curTabKey(){// 激活的tab key
+     return this.$store.state.tab.curTabKey;
+     }
+     },*/
+    computed: {
+      tabsArr: {//tab区域的数据列表
         get(){
           return this.$store.state.tab.tabsArr;
         },
-      /* set (value) {
-         this.$store.commit('updateUsername', value)
-       }*/
-     },
-     curTabKey:{// 激活的tab key
-       get(){
-         return this.$store.state.tab.curTabKey;
-       },
-      /* set (value) {
-         this.$store.commit('updateUsername', value)
-       }*/
-     }
-     },
+        set (value) {
+          console.log(value, "commit-to-store-val:tabsArr:");
+          this.$store.commit('addTab', value)
+        }
+      },
+      curTabKey: {// 激活的tab key
+        get(){
+          return this.$store.state.tab.curTabKey;
+        },
+        set (value) {
+          console.log(value,"value:");
+          this.$store.commit('tab/changeTab', value)
+        }
+      }
+    },
     data(){
       return {
         tabIndex: 2
       }
     },
     methods: {
+      // tab被选中时候触发
+      changeTab(curTabObj){
+        debugger
+        console.log(curTabObj, "curTabObj:");
+       this.$store.commit('tab/changeTab',curTabObj)
+      },
       // 关闭tab @name [string] 被删除的标签的name //name 也就是tab的key 要求具有唯一性
       closeTab(key){
         let self = this
+
+        self.$store.commit('tab/closeTab', key)
+        return;
         let curTabKey = null;
         // 放到promise中实现只是为了固定下代码结构
         new Promise((resolve, reject)=> {

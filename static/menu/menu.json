@@ -22,6 +22,16 @@
           "key":"home3",
           "icon":"",
           "children":[]
+        },{
+          "name":"导航1.4",
+          "key":"home4",
+          "icon":"",
+          "children":[]
+        },{
+          "name":"导航1.5",
+          "key":"home5",
+          "icon":"",
+          "children":[]
         }
       ]
     },

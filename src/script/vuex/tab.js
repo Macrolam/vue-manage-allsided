@@ -7,12 +7,13 @@
  */
 import Vue from 'vue'
 import Vuex from 'Vuex'
+import {tools} from '@/script/tool/tools.js'
 Vue.use(Vuex)
 let tab = {
   namespaced: true,// 继承父模块的命名空间
   state: {
     num: 0,
-    curTabKey: '1',// 激活的tab key
+    curTabKey: 'home1',// 激活的tab key
     tabsArr: [
       {
         "name": "导航1.1",
@@ -32,10 +33,41 @@ let tab = {
     add(state){
       state.num++
     },
-    addTab(state){
-      state.tabsArr.push({})
+    addTab(state,menuIndex){
+      debugger
+      console.log(menuIndex,"mutations-addTab-fromCommitNewVal-from-commit-mutations:");
+      if(!tools.dataHandle.isHasCurkeyInArrobj(menuIndex,"key",state.tabsArr)){
+        debugger
+        state.curTabKey = menuIndex
+        state.tabsArr.push({
+          "name": menuIndex,
+          "key": menuIndex,
+        })
+      }
 
     },
+    closeTab(state,menuIndex){
+      debugger
+      let self = this
+      let curTabKey = null;
+      // 1.0 定位当前要关闭的tab
+      state.tabsArr.forEach((item, index)=> {
+        if (item.key === menuIndex) curTabKey = index;
+      })
+      //state.curTabKey = state.tabsArr[curTabKey-1].key
+
+      // 1.1 从tabsArr中删除此项
+      state.tabsArr.splice(curTabKey, 1)
+    },
+    changeTab(state,curTabObj){
+      debugger
+      if(tools.type.isObject(curTabObj)&&curTabObj.name){
+        state.curTabKey = curTabObj.name
+      }else{
+        state.curTabKey = curTabObj//header.vue computed set ->  this.$store.commit('tab/changeTab', value)
+      }
+    },
+
     //=== mutations end ===
   },
 };
