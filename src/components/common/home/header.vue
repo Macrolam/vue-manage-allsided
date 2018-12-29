@@ -6,7 +6,7 @@
           <el-tabs v-model="curTabKey" type="card" closable @tab-remove="closeTab">
             <el-tab-pane
               :key="item.key"
-              v-for="(item, index) in tabsArr"
+               v-for="(item, index) in tabsArr"
               :label="item.name"
               :name="item.key">
               {{item.key}}
@@ -27,14 +27,32 @@
 </template>
 <script>
   export default {
-    computed:{
+    /*computed:{
       tabsArr(){//tab区域的数据列表
         return this.$store.state.tab.tabsArr;
       },
       curTabKey(){// 激活的tab key
         return this.$store.state.tab.curTabKey;
       }
-    },
+    },*/
+    computed:{
+     tabsArr:{//tab区域的数据列表
+        get(){
+          return this.$store.state.tab.tabsArr;
+        },
+      /* set (value) {
+         this.$store.commit('updateUsername', value)
+       }*/
+     },
+     curTabKey:{// 激活的tab key
+       get(){
+         return this.$store.state.tab.curTabKey;
+       },
+      /* set (value) {
+         this.$store.commit('updateUsername', value)
+       }*/
+     }
+     },
     data(){
       return {
         tabIndex: 2

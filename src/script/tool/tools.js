@@ -65,12 +65,78 @@ tools.dataHandle = {
     return str
   },
 
+
+  // 判断一个值是不是空对象(包含不是空数组)-[]  {} 或是 null
+  isEmptyObj: function (obj) {
+    var key;
+    for (key in obj) {
+      //alert('not is empty obj')
+      return false;
+    }
+    //alert('is empty obj')
+    return true;
+    // or JSON.stringify(obj) === '{}'||==='null'||==='[]'
+  },
+ // 检测数值对象中是否包含此属性key。只是检测数组中包含一层对象的key
+  isHasCurkeyInArrobj0: function (curkey,keyName, arrInobj) {
+    debugger
+    if(arguments.length != 3 || this.isEmptyObj(arrInobj))return ;//少传多传递 or 第二个参数是空数组或是空对象
+    let targetArr = [];
+    let isHas ;
+    new Promise((resolve,reject)=>{
+      arrInobj.forEach((item,index)=>{
+        item[keyName] ? targetArr.push(item[keyName]) : console.error("传递的keyName不是此对象的属性");
+      })
+      console.log(targetArr,"提取了arrInobj的 keyName 后数组：");
+      debugger
+      resolve(targetArr)
+    }).then((targetArr)=>{
+      debugger
+      if(targetArr.indexOf(curkey)>-1){
+        debugger
+        isHas = true
+      }else{
+        isHas =  false
+      }
+      new Promise((resolve)=>{
+        debugger
+        resolve(isHas)
+      }).then((isHas)=>{
+        debugger
+        console.log(isHas,"isHas:");
+        return isHas;
+      })
+
+    }).catch((err)=>{
+      console.log(err,"isHasCurkeyInArrobjFn:");
+    })
+
+
+
+  },
+  // 检测数值对象中是否包含此属性key。只是检测数组中包含一层对象的key
+  isHasCurkeyInArrobj: function (curkey,keyName, arrInobj) {
+    debugger
+    if(arguments.length != 3 || this.isEmptyObj(arrInobj))return ;//少传多传递 or 第二个参数是空数组或是空对象
+    let targetArr = [];
+    let isHas ;
+    arrInobj.forEach((item,index)=>{
+      item[keyName] ? targetArr.push(item[keyName]) : console.error("传递的keyName不是此对象的属性");
+    })
+    if(targetArr.indexOf(curkey)>-1){
+      isHas = true
+    }else{
+      isHas =  false
+    }
+     return isHas;
+  }
 };
+
 
 
 tools.date = {
   //获取当前时间戳的方法
-  getTimestamp:function () {
+  getTimestamp: function () {
     return new Date().getTime().toString();//"1545907921968" //or Date.parse(new Date()) or (new Date()).valueOf()
   }
 }

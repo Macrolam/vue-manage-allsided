@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  window.onload = function () {
+
+    // 判断一个值是不是null
+    function isNull(param) {
+      if(typeof param === 'object' && !param === true ){//首先过滤出是复杂类型-object 其次 取反后是true
+        alert('is null')
+      }else{
+        alert('not is null')
+      }
+
+    }
+
+    // 判断一个值是不是空对象-[]  {} 或是 null
+    isEmptyObj=function (obj) {
+      var key;
+      for(key in obj){
+        alert('not is empty obj')
+        return false;
+      }
+      alert('is empty obj')
+      return true;
+      // or JSON.stringify(obj) === '{}'||==='null'||==='[]'
+    }
+//    isEmptyObj([])
+//    isEmptyObj([1])
+//    isEmptyObj({})
+//    isEmptyObj(null)
+
+
+    error= function( msg ) {
+      throw new Error( msg );
+    }
+   // error("我是错误信息 new Error 后 throw")
+
+    isHasCurkeyInArrobj = function (curkey, arrInobj) {
+      console.log(arguments.length);
+      if(isEmptyObj(arrInobj))return false;
+    }
+    isHasCurkeyInArrobj(1,{})
+    //===onload end ===
+  }
+</script>
+</body>
+</html>

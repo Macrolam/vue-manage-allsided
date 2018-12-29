@@ -46,7 +46,6 @@
         restful.get({
           url:api.getMenuByUserRole,
           callback(res){
-            console.log(res.data.defaultSite,"res:")
             self.menuArr = res.data.defaultSite || []
           }
         })
@@ -54,12 +53,17 @@
       // 菜单激活的回调
       handleOpen(menuIndex,menuIndexPath){
         let self = this
-        console.log(menuIndex)
-        console.log(menuIndexPath,"menuIndexPath:")//拿到 el-submenu :index="`${index}-zero`" 和 el-menu-item :index="`${itemFir.key}`"
-        self.tabsArr.push({
-          name:menuIndex,
-          key:tools.date.getTimestamp()
-        })
+        console.log(menuIndex,"menuIndex:")
+        //拿到 el-submenu :index="`${index}-zero`" 和 el-menu-item :index="`${itemFir.key}`"
+        console.log(menuIndexPath,"menuIndexPath:")
+
+        if(!tools.dataHandle.isHasCurkeyInArrobj(menuIndex,"key",self.tabsArr)){
+          debugger
+          self.tabsArr.push({
+            "name": menuIndex,
+            "key": menuIndex,
+          })
+        }
 
       },
 
@@ -67,7 +71,6 @@
     created(){
       let self = this
       self.getMenu()
-      Vue.globalFn()
     }
   }
 </script>
