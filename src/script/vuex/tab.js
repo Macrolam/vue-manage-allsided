@@ -33,11 +33,10 @@ let tab = {
     add(state){
       state.num++
     },
+    //开tab-唯一,处理的是state 的 tabsArr curTabKey
     addTab(state,menuIndex){
-      debugger
       console.log(menuIndex,"mutations-addTab-fromCommitNewVal-from-commit-mutations:");
       if(!tools.dataHandle.isHasCurkeyInArrobj(menuIndex,"key",state.tabsArr)){
-        debugger
         state.curTabKey = menuIndex
         state.tabsArr.push({
           "name": menuIndex,
@@ -46,8 +45,20 @@ let tab = {
       }
 
     },
+    //开tab-无限制开
+    addTabUnlimit(state,menuIndex){
+      console.log(menuIndex,"mutations-addTab-fromCommitNewVal-from-commit-mutations:");
+      if(!tools.dataHandle.isHasCurkeyInArrobj(menuIndex,"key",state.tabsArr)){
+        state.curTabKey = menuIndex
+        state.tabsArr.push({
+          "name": menuIndex,
+          "key": tools.date.getTimestamp(),
+        })
+      }
+
+    },
+    //关tab,处理的是state 的 tabsArr curTabKey
     closeTab(state,menuIndex){
-      debugger
       let self = this
       let curTabKey = null;
       // 1.0 定位当前要关闭的tab
@@ -59,8 +70,8 @@ let tab = {
       // 1.1 从tabsArr中删除此项
       state.tabsArr.splice(curTabKey, 1)
     },
+    //切换tab-处理的是state里的curTabKey
     changeTab(state,curTabObj){
-      debugger
       if(tools.type.isObject(curTabObj)&&curTabObj.name){
         state.curTabKey = curTabObj.name
       }else{

@@ -63,30 +63,12 @@
     methods: {
       // tab被选中时候触发
       changeTab(curTabObj){
-        debugger
         console.log(curTabObj, "curTabObj:");
-       this.$store.commit('tab/changeTab',curTabObj)
+        this.$store.commit('tab/changeTab',curTabObj)
       },
       // 关闭tab @name [string] 被删除的标签的name //name 也就是tab的key 要求具有唯一性
       closeTab(key){
-        let self = this
-
-        self.$store.commit('tab/closeTab', key)
-        return;
-        let curTabKey = null;
-        // 放到promise中实现只是为了固定下代码结构
-        new Promise((resolve, reject)=> {
-          // 1.0 定位当前要关闭的tab
-          self.tabsArr.forEach((item, index)=> {
-            if (item.key === key) curTabKey = index;
-          })
-          curTabKey != null ? resolve(curTabKey) : reject("未能捕获到当前要关闭tab的index")
-        }).then((curTabKeyFromResolve)=> {
-          // 1.1 从tabsArr中删除此项
-          self.tabsArr.splice(curTabKeyFromResolve, 1)
-        }).catch((err)=> {
-          console.log(err);
-        })
+        this.$store.commit('tab/closeTab', key)
       },
 
     },

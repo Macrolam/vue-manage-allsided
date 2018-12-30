@@ -42,7 +42,7 @@
       "children":[
         {
           "name":"导航2.1",
-          "key":"",
+          "key":"nav",
           "icon":"",
           "children":[]
         }

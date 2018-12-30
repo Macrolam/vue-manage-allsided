@@ -77,7 +77,8 @@ tools.dataHandle = {
     return true;
     // or JSON.stringify(obj) === '{}'||==='null'||==='[]'
   },
- // 检测数值对象中是否包含此属性key。只是检测数组中包含一层对象的key
+
+  // 检测数值对象中是否包含此属性key。只是检测数组中包含一层对象的key-同步code采用异步方式出现问题
   isHasCurkeyInArrobj0: function (curkey,keyName, arrInobj) {
     debugger
     if(arguments.length != 3 || this.isEmptyObj(arrInobj))return ;//少传多传递 or 第二个参数是空数组或是空对象
@@ -114,12 +115,11 @@ tools.dataHandle = {
 
 
   },
+
   // 检测数值对象中是否包含此属性key。只是检测数组中包含一层对象的key
   isHasCurkeyInArrobj: function (curkey,keyName, arrInobj) {
-    debugger
     if(arguments.length != 3 || this.isEmptyObj(arrInobj))return ;//少传多传递 or 第二个参数是空数组或是空对象
-    let targetArr = [];
-    let isHas ;
+    let targetArr = [],isHas;
     arrInobj.forEach((item,index)=>{
       item[keyName] ? targetArr.push(item[keyName]) : console.error("传递的keyName不是此对象的属性");
     })

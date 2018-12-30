@@ -56,7 +56,6 @@
         console.log(menuIndex,"menuIndex:")
         //拿到 el-submenu :index="`${index}-zero`" 和 el-menu-item :index="`${itemFir.key}`"
         console.log(menuIndexPath,"menuIndexPath:")
-        debugger
         this.$store.commit('tab/addTab',menuIndex)
 /*
         if(!tools.dataHandle.isHasCurkeyInArrobj(menuIndex,"key",self.tabsArr)){
