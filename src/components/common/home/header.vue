@@ -3,13 +3,14 @@
     <el-col :span="24">
       <el-row>
         <el-col :span="24">
-          <el-tabs v-model="curTabKey" type="card" closable @tab-remove="closeTab" @tab-click="changeTab">
+          <el-tabs v-model="curTabKey" type="border-card" :closable="true" @tab-remove="closeTab" @tab-click="changeTab">
             <el-tab-pane
               :key="item.key"
               v-for="(item, index) in tabsArr"
               :label="item.name"
-              :name="item.key">
-              {{item.key}}
+              :name="item.key"
+              :closable="item.closable">
+              {{item.key}}-{{item.closable}}
             </el-tab-pane>
           </el-tabs>
         </el-col>

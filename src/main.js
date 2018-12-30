@@ -19,7 +19,7 @@ Vue.use(plugin)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router,//记得要通过 router 配置参数注入路由,通过注入路由器，我们可以在任何组件内通过 this.$router 访问路由器
   components: {App},
   template: '<App/>'
 })

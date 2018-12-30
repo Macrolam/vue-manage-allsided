@@ -10,18 +10,19 @@ import Vuex from 'Vuex'
 import {tools} from '@/script/tool/tools.js'
 Vue.use(Vuex)
 let tab = {
-  namespaced: true,// 继承父模块的命名空间
+  namespaced: true,// 继承父模块的命名空间,调用此模块的mutation方法,需要带上模块名字的=>tab/addTab才能调用到
   state: {
     num: 0,
     curTabKey: 'home1',// 激活的tab key
     tabsArr: [
       {
-        "name": "导航1.1",
+        "name": "首页",
         "key": "home1",
+        "closable":true,//不可以关闭
         // title: 'Tab 1',
         // name: '1',
       }, {
-        "name": "导航1.1",
+        "name": "导航1.2",
         "key": "home2",
         // title: 'Tab 1',
         // name: '1',
@@ -52,7 +53,7 @@ let tab = {
         state.curTabKey = menuIndex
         state.tabsArr.push({
           "name": menuIndex,
-          "key": tools.date.getTimestamp(),
+          "key": menuIndex+'-'+tools.date.getTimestamp(),//加上menuIndex为了路由中定位到它
         })
       }
 
@@ -74,6 +75,8 @@ let tab = {
     changeTab(state,curTabObj){
       if(tools.type.isObject(curTabObj)&&curTabObj.name){
         state.curTabKey = curTabObj.name
+        curTabObj.$router.push('/'+state.curTabKey)
+
       }else{
         state.curTabKey = curTabObj//header.vue computed set ->  this.$store.commit('tab/changeTab', value)
       }
