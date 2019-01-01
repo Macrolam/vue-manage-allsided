@@ -70,8 +70,6 @@
       </el-pagination>
     </el-col>
   </el-row>
-
-
 </div>
 </template>
 <style>
@@ -109,11 +107,11 @@
     methods: {
       getMock(){
         let self = this
-        axios.get('/news/index').then((res) => {
-          console.log(res.data.table.articles)
-        self.tableData = res.data.table.articles || []
-        self.total = self.tableData.length || 0;
-      })
+        axios.get('/table/table',{params:{page:1,pageSize:20}}).then((res) => {
+          console.log(res.data.table.articles,"table-mock:")
+          self.tableData = res.data.table.articles || []
+          self.total = self.tableData.length || 0;
+      });
        //
 //        restful.get({
 //          url:"/news/index",
