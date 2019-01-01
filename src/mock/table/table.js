@@ -4,7 +4,7 @@ const Random = Mock.Random;
 // mock一组数据
 const produceNewsData = function() {
   let articles = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10; i++) {
     let newArticleObject = {
       address:"广州市白云区机场路918号",
       tit: Random.csentence(5, 30), //  Random.csentence( min, max )

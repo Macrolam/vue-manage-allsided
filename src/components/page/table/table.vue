@@ -1,8 +1,9 @@
 <template>
+  <div>
   <el-row class="table">
     <el-col :span="24">
       <el-table
-        height="650"
+        height="550"
         :data="tableData"
         border
         :default-sort="{prop: 'date', order: 'descending'}"
@@ -11,6 +12,7 @@
           prop="date"
           label="日期"
           sortable
+          fixed
           width="180">
         </el-table-column>
         <el-table-column
@@ -51,23 +53,30 @@
         </el-table-column>
       </el-table>
     </el-col>
-    <el-col :span='24'>
+  </el-row>
+  <el-row style="margin-top: 20px;">
+    <el-col :span="12" style="opacity: 0;">占位</el-col>
+    <el-col :span='12' >
       <el-pagination
+        style="float: right;"
         background
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage"
-        :page-sizes="[10, 20, 50, 100]"
-        :page-size="100"
+        :page-sizes="[10, 20, 50]"
+        :page-size="20"
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
       </el-pagination>
     </el-col>
   </el-row>
+
+
+</div>
 </template>
 <style>
   .table {
-    background: #ccc;
+    background: #fff;
   }
 </style>
 <script>

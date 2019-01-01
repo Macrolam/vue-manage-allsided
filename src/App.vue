@@ -60,21 +60,25 @@
   #leftWrap {
     width: 200px;
     height: 100%;
-    background: lightcyan;
+    background: rgb(43, 43, 43);
   }
 
   #rightWrap {
     width: 100%;
     height: 100%;
-    background: #eee;
+    background: #fff;
   }
 
   #rightWrap .topWrap {
     height: 100px;
     background: lightgoldenrodyellow;
+    overflow: hidden;
+    padding: 0;
   }
  #rightWrap .main{
-   background: #ccc;
+   background: #fff;
+   padding: 0;
+
  }
   #rightWrap .footer {
     height: 100px;
