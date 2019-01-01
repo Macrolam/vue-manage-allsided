@@ -6,8 +6,8 @@
       "icon":"el-icon-location",
       "children":[
         {
-          "name":"导航1.1",
-          "key":"home3",
+          "name":"表格",
+          "key":"table",
           "icon":"",
           "children":[]
         },

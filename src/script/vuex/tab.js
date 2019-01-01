@@ -13,11 +13,11 @@ let tab = {
   namespaced: true,// 继承父模块的命名空间,调用此模块的mutation方法,需要带上模块名字的=>tab/addTab才能调用到
   state: {
     num: 0,
-    curTabKey: 'home1',// 激活的tab key
+    curTabKey: 'table',// 激活的tab key
     tabsArr: [
       {
-        "name": "首页",
-        "key": "home1",
+        "name": "表格",
+        "key": "table",
         "closable":true,//不可以关闭
         // title: 'Tab 1',
         // name: '1',

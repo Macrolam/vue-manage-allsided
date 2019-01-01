@@ -10,7 +10,6 @@
               :label="item.name"
               :name="item.key"
               :closable="item.closable">
-              {{item.key}}-{{item.closable}}
             </el-tab-pane>
           </el-tabs>
         </el-col>

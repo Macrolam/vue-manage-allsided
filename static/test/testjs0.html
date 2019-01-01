@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  window.onload = function () {
+
+    let tool = {
+      num1:1,
+      num2:2,
+      add: function () {
+        return this.num1+this.num2
+      }
+    }
+    tool.prototype={
+      add:function(){
+      return this.num1+this.num2
+    }
+    }
+
+    let obj={
+      num1:4,
+      num2:5,
+      callToolsSum:function() {
+        console.log(tool.add.call(tool,this.num1,this.num2))
+        console.log(tool.prototype.add.call(this,this.num1,this.num2))
+//        console.log(tool.sum.call(tool,this.num1,this.num2))
+//        console.log(tool.sum.call(this,this.num1,this.num2))
+//        console.log(tool.sum.call(null,this.num1,this.num2))
+//        console.log(tool.sum.call(window,this.num1,this.num2))
+        //return tool.sum.call(this,this.num1,this.num2)
+
+      }
+    }
+
+    obj.callToolsSum();
+    // 调用
+//    callToolsSum(1,2)
+    //===onload end ===
+  }
+</script>
+</body>
+</html>

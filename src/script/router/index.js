@@ -19,6 +19,10 @@ export default new Router({
       path: '/home2',
       name: 'home2',
       component: resolve =>require(['@/components/page/home/home1'],resolve)
+    },{
+      path: '/table',
+      name: 'table',
+      component: resolve =>require(['@/components/page/table/table'],resolve)
     },
   ]
 })
