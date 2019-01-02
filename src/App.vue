@@ -78,7 +78,7 @@
  #rightWrap .main{
    background: #fff;
    padding: 0;
-
+   padding-left: 20px;
  }
   #rightWrap .footer {
     height: 100px;
