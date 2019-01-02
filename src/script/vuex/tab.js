@@ -22,8 +22,8 @@ let tab = {
         // title: 'Tab 1',
         // name: '1',
       }, {
-        "name": "导航1.2",
-        "key": "home2",
+        "name": "表单",
+        "key": "form",
         // title: 'Tab 1',
         // name: '1',
       },

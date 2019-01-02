@@ -23,6 +23,10 @@ export default new Router({
       path: '/table',
       name: 'table',
       component: resolve =>require(['@/components/page/table/table'],resolve)
+    },{
+      path:'/form',
+      name:'form',
+      component:(res) => {require(['@/components/page/form/form.vue'],res)},
     },
   ]
 })

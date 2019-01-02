@@ -3,8 +3,9 @@
 import Vue from 'vue'//相当于import Vue from 'node_modules/vue/dist/vue.esm.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'//样式文件需要单独引入
-import '@/style/reset.css'// 重置浏览器默认标签样式
-import '@/style/base.css'//base 样式
+import '@/style/css/reset.css'// 重置浏览器默认标签样式
+import '@/style/css/base.css'//base 样式
+import '@/style/less/index.less'//自定义的样式文件
 import App from './App'
 import router from '@/script/router'// 引入路由 => @/script/router/index.js
 import plugin from '@/script/plugin/plugin.js'//扩展的vue插件（工具方法，实例方法-http库）
